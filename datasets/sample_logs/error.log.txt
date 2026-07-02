@@ -1,0 +1,22 @@
+2026-07-02 10:15:22 ERROR [AuthenticationService]
+
+java.lang.NullPointerException
+
+at com.smartbug.auth.UserController.login(UserController.java:42)
+
+at com.smartbug.auth.AuthenticationService.authenticate(AuthenticationService.java:88)
+
+at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071)
+
+Environment:
+Java 17
+Spring Boot 3
+Windows 11
+
+Severity: Critical
+
+Description:
+Application crashes during login when credentials are submitted.
+
+Root Cause:
+User object was not initialized before method invocation.
