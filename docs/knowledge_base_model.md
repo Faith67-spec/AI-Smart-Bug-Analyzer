@@ -13,7 +13,7 @@
 | priority | Priority |
 | component | System module |
 | resolution | Previous fix |
-| source_dataset | Mozilla/Apache/Eclipse |
+| source_dataset | Mozilla / Apache / Eclipse |
 | embedding | Vector representation |
 
 ---
@@ -22,20 +22,60 @@
 
 ```json
 {
-"id":"MOZ_1001",
-
-"title":"NullPointerException during login",
-
-"description":"Application crashes on login",
-
-"severity":"Critical",
-
-"priority":"P1",
-
-"component":"Authentication",
-
-"resolution":"Initialize object before access",
-
-"source_dataset":"Mozilla"
-
+  "id": "MOZ_1001",
+  "title": "NullPointerException during login",
+  "description": "Application crashes on login",
+  "severity": "Critical",
+  "priority": "P1",
+  "component": "Authentication",
+  "resolution": "Initialize object before access",
+  "source_dataset": "Mozilla"
 }
+```
+
+---
+
+## Dataset Information
+
+### Dataset Source
+Eclipse Bugzilla Dataset
+
+### Original Dataset Size
+10,000 bug reports
+
+### Selected Dataset Size
+5,000 bug reports
+
+### Selection Strategy
+Although the Eclipse dataset contained 10,000 bug reports, a representative subset of 5,000 defects was selected for Milestone 1 to satisfy project requirements while maintaining efficient embedding generation and retrieval performance.
+
+---
+
+## Embedding Configuration
+
+### Embedding Model
+SentenceTransformer (`all-MiniLM-L6-v2`)
+
+### Embedding Dimension
+384
+
+### Chunk Size
+500 characters
+
+### Vector Database
+ChromaDB
+
+### Similarity Metric
+Cosine Similarity
+
+---
+
+## Knowledge Base Purpose
+
+The Historical Defect Knowledge Base supports:
+
+- Duplicate bug detection
+- Similarity matching
+- Root cause analysis
+- Resolution recommendation
+- Retrieval-Augmented Generation (RAG)
