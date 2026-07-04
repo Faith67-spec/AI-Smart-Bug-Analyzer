@@ -79,3 +79,18 @@ The Historical Defect Knowledge Base supports:
 - Root cause analysis
 - Resolution recommendation
 - Retrieval-Augmented Generation (RAG)
+
+## Document Chunking
+
+Chunking Strategy:
+Fixed-size chunking
+
+Chunk Size:
+500 characters
+
+Purpose:
+
+• Improve semantic retrieval
+• Enable efficient embedding generation
+• Support similarity search
+• Reduce context size for RAG
