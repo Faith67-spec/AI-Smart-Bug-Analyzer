@@ -94,3 +94,41 @@ Purpose:
 • Enable efficient embedding generation
 • Support similarity search
 • Reduce context size for RAG
+
+## Vector Store Configuration
+
+Vector Database:
+ChromaDB
+
+Collection Name:
+bug_reports
+
+Embedding Model:
+all-MiniLM-L6-v2
+
+Embedding Dimension:
+384
+
+Indexed Documents:
+5000
+
+Persistence:
+Local Storage (chroma_db/)
+## Retrieval Pipeline
+
+1. User submits a defect description
+
+2. Query embedding generated using
+all-MiniLM-L6-v2
+
+3. ChromaDB performs similarity search
+
+4. Top-K historical defects retrieved
+
+5. Results returned for analysis
+
+Similarity Metric:
+Cosine Similarity
+
+Top-K:
+5
