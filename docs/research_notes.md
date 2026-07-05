@@ -265,6 +265,10 @@ LangChain simplifies document loading, chunking, embedding generation, retrieval
 
 ---
 
+### Dataset Selection
+
+Although the Eclipse dataset contains approximately 10,000 bug reports, a representative subset of 5,000 defects was selected for Milestone 1 to satisfy project requirements while maintaining efficient preprocessing, embedding generation, and retrieval performance.
+
 ### Conclusion
 
 This research establishes the foundational concepts required for developing the AI Smart Bug Analyzer & Fix Advisor system. The study of defect analysis workflows, Retrieval-Augmented Generation (RAG), semantic similarity techniques, and bug report structures guided the selection of the proposed architecture and technology stack for Milestone 1.
