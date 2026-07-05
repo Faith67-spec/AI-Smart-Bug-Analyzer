@@ -20,35 +20,24 @@ embedding = model.encode(
 )
 
 results = collection.query(
-
     query_embeddings=[embedding.tolist()],
-
-    n_results=5
-
+    n_results=5,
+    include=["documents", "metadatas", "distances"]
 )
+print("\nMost Similar Historical Defects\n")
 
 print("\nMost Similar Historical Defects\n")
 
-for i in range(
+for i in range(len(results["documents"][0])):
 
-        len(results["documents"][0])
+   distance = results["distances"][0][i]
+similarity = round(100 / (1 + distance), 2)
+print(f"Similarity Score: {similarity}%")
 
-):
-
-    print(
-
-        f"\nResult {i+1}"
-
-    )
-
-    print(
-
+print(
         results["documents"][0][i]
-
     )
 
-    print(
-
+print(
         results["metadatas"][0][i]
-
     )
