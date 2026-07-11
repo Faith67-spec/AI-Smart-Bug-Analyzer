@@ -1,3 +1,7 @@
+ # how to run ___  .\venv\Scripts\Activate.ps1
+ # cd frontend       streamlit run app.py
+
+
 # AI Smart Bug Analyzer & Fix Advisor
 
 ## Overview
@@ -264,6 +268,9 @@ FIXED
 
 ![Bug Submission](screenshots/streamlit_ui.png)
 
+![Bug Submission](screenshots/streamlit2.png)
+
+
 ---
 
 ### System Architecture
@@ -342,7 +349,7 @@ https://github.com/Faith67-spec/AI-Smart-Bug-Analyzer
 
 # Authors
 
-Infosys Internship Project
+Infosys Internship Project (Faith67-spec)
 
 AI Smart Bug Analyzer & Fix Advisor
 

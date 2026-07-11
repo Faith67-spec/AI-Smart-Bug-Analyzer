@@ -19,9 +19,7 @@ Supported inputs:
 ### 2. Historical Defect Knowledge Base
 Stores historical defects collected from:
 
-- Mozilla
-- Apache
-- Eclipse
+- Eclipse dataset
 
 Stores:
 - Bug reports
