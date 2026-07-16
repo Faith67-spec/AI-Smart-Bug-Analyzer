@@ -47,22 +47,23 @@ if st.button(
     use_container_width=True
 ):
 
-    if description.strip() == "":
-
-        st.error(
-            "Please enter a bug description."
-        )
-
+    # Require at least one input
+    if description.strip() == "" and log_contents.strip() == "":
+        st.error("Please either paste a bug report or upload a log file.")
         st.stop()
 
-    with st.spinner(
-        "Analyzing Bug..."
-    ):
+    # If only a log is uploaded, use it as the bug text
+    bug_text = description if description.strip() else log_contents
+
+    with st.spinner("Analyzing Bug..."):
 
         results = orchestrator.analyze(
-            description,
+            bug_text,
             log_contents
         )
+
+    triage = results["Triage"]
+    log = results["Log Analysis"]
 
     triage = results["Triage"]
 
@@ -97,10 +98,9 @@ if st.button(
 
     with tab3:
 
-        show_recommendation_tab(
-            triage,
-            log
-        )
+      show_recommendation_tab(
+        results["Recommendations"]
+    )
 
     with tab4:
 
