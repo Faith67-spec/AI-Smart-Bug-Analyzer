@@ -1,43 +1,64 @@
+import os
 import chromadb
 from sentence_transformers import SentenceTransformer
 
-model = SentenceTransformer(
-    "all-MiniLM-L6-v2"
-)
 
-client = chromadb.PersistentClient(
-    path="chroma_db"
-)
+class BugQuery:
 
-collection = client.get_collection(
-    "bug_reports"
-)
+    def __init__(self):
 
-query = input("Enter bug description: ")
+        self.model = SentenceTransformer(
+            "all-MiniLM-L6-v2"
+        )
 
-embedding = model.encode(
-    query
-)
+        base_dir = os.path.dirname(__file__)
 
-results = collection.query(
-    query_embeddings=[embedding.tolist()],
-    n_results=5,
-    include=["documents", "metadatas", "distances"]
-)
-print("\nMost Similar Historical Defects\n")
+        db_path = os.path.join(
+            base_dir,
+            "chroma_db"
+        )
 
-print("\nMost Similar Historical Defects\n")
+        client = chromadb.PersistentClient(
+            path=db_path
+        )
 
-for i in range(len(results["documents"][0])):
+        self.collection = client.get_collection(
+            "bug_reports"
+        )
 
-   distance = results["distances"][0][i]
-similarity = round(100 / (1 + distance), 2)
-print(f"Similarity Score: {similarity}%")
+    def search(self, query, top_k=3):
 
-print(
-        results["documents"][0][i]
-    )
+        embedding = self.model.encode(query)
 
-print(
-        results["metadatas"][0][i]
-    )
+        results = self.collection.query(
+            query_embeddings=[embedding.tolist()],
+            n_results=top_k,
+            include=[
+                "documents",
+                "metadatas",
+                "distances"
+            ]
+        )
+
+        similar_bugs = []
+
+        for i in range(len(results["documents"][0])):
+
+            distance = results["distances"][0][i]
+
+            similarity = round(
+                100 / (1 + distance),
+                2
+            )
+
+            similar_bugs.append({
+
+                "Bug": results["documents"][0][i],
+
+                "Metadata": results["metadatas"][0][i],
+
+                "Similarity": similarity
+
+            })
+
+        return similar_bugs

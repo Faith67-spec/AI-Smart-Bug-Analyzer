@@ -19,6 +19,7 @@ from components.bug_form import show_bug_form
 from components.triage_tab import show_triage_tab
 from components.log_tab import show_log_tab
 from components.recommendation_tab import show_recommendation_tab
+from components.root_cause_tab import show_root_cause_tab
 from components.similar_bug_tab import show_similar_bug_tab
 from components.report import show_report
 
@@ -35,7 +36,6 @@ st.set_page_config(
 )
 
 show_header(logo)
-
 show_sidebar(logo)
 
 orchestrator = BugAnalysisOrchestrator()
@@ -52,7 +52,7 @@ if st.button(
         st.error("Please either paste a bug report or upload a log file.")
         st.stop()
 
-    # If only a log is uploaded, use it as the bug text
+    # Use uploaded log if description is empty
     bug_text = description if description.strip() else log_contents
 
     with st.spinner("Analyzing Bug..."):
@@ -64,47 +64,47 @@ if st.button(
 
     triage = results["Triage"]
     log = results["Log Analysis"]
-
-    triage = results["Triage"]
-
-    log = results["Log Analysis"]
+    recommendations = results["Recommendations"]
+    root_cause = results["Root Cause"]
 
     st.divider()
 
-    st.header(
-        "🤖 AI Analysis"
-    )
+    st.header("🤖 AI Analysis")
 
-    tab1, tab2, tab3, tab4 = st.tabs(
+    tab1, tab2, tab3, tab4, tab5 = st.tabs(
         [
             "📋 Triage",
             "🔍 Log Analysis",
             "💡 Recommendations",
+            "🧠 Root Cause",
             "📚 Similar Bugs"
         ]
     )
 
     with tab1:
-
         show_triage_tab(
             triage
         )
 
     with tab2:
-
         show_log_tab(
             log
         )
 
     with tab3:
-
-      show_recommendation_tab(
-        results["Recommendations"]
-    )
+        show_recommendation_tab(
+            recommendations
+        )
 
     with tab4:
+        show_root_cause_tab(
+            root_cause
+        )
+    with tab5:
 
-        show_similar_bug_tab()
+        show_similar_bug_tab(
+        results["Similar Bugs"]
+    )
 
     show_report(
         triage,
