@@ -3,19 +3,43 @@ import streamlit as st
 
 def show_log_tab(log):
 
-    st.subheader("🔍 Log Analysis")
+    st.subheader("🔍 Log Analysis Agent")
 
-    st.write("### Exception Type")
+    # -------------------------
+    # Metrics
+    # -------------------------
 
-    st.code(log["Exception Type"])
+    col1, col2 = st.columns(2)
 
-    st.write("### Failure Point")
+    with col1:
+        st.metric(
+            "Exception Type",
+            log["Exception Type"]
+        )
 
-    st.code(log["Failure Point"])
+    with col2:
+        st.metric(
+            "Confidence",
+            f"{log['Confidence']}%"
+        )
 
-    st.write("### Affected Code Path")
+    # -------------------------
+    # Failure Point
+    # -------------------------
 
-    if len(log["Affected Code Path"]) > 0:
+    st.markdown("### 🎯 Failure Point")
+
+    st.info(
+        log["Failure Point"]
+    )
+
+    # -------------------------
+    # Code Path
+    # -------------------------
+
+    st.markdown("### 🛤 Affected Code Path")
+
+    if log["Affected Code Path"]:
 
         for item in log["Affected Code Path"]:
 
@@ -25,7 +49,11 @@ def show_log_tab(log):
 
         st.info("No stack trace detected.")
 
-    st.subheader("🛠 Likely Cause")
+    # -------------------------
+    # Root Cause
+    # -------------------------
+
+    st.markdown("### 🛠 Likely Cause")
 
     st.warning(
         log["Likely Cause"]

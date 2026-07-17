@@ -22,10 +22,11 @@ class BugAnalysisOrchestrator:
         )
 
         # Run Log Analysis Agent
-        log_result = self.log_agent.analyze(
-            log
-        )
+        combined_text = bug_report + "\n" + log
 
+        log_result = self.log_agent.analyze(
+    combined_text
+)
         # Run Recommendation Agent
         recommendations = self.recommendation.recommend(
             triage_result,

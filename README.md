@@ -1,8 +1,6 @@
- # how to run ___  .\venv\Scripts\Activate.ps1
- # cd frontend       streamlit run app.py
-
-
 # AI Smart Bug Analyzer & Fix Advisor
+
+### AI-Powered Multi-Agent Defect Analysis using Retrieval-Augmented Generation (RAG)
 
 ## Overview
 
@@ -325,20 +323,133 @@ Additional features incorporated into the implementation:
 - Extensible analytics framework
 - Scalable RAG pipeline
 
----
-
-# Future Work
-
-Planned enhancements:
-
-- Severity prediction
-- Root cause classification
-- Automated fix recommendation
-- Defect analytics dashboard
-- Agent monitoring interface
 
 ---
 
+# Milestone 2 Objectives
+
+Milestone 2 focused on developing the core intelligent analysis components of the AI Smart Bug Analyzer.
+
+Completed objectives include:
+
+- ✔ Build Triage Agent
+- ✔ Build Log Analysis Agent
+- ✔ Implement Multi-Agent Orchestration
+- ✔ Validate Triage and Log Analysis agents using representative bug reports and seeded historical defect datasets
+
+---
+
+# Milestone 2 Features
+
+## Triage Agent
+
+The Triage Agent automatically analyzes submitted bug reports and classifies them using predefined rules.
+
+Implemented Features:
+
+- Severity Classification (Critical / High / Medium / Low)
+- Priority Assignment (P1 – P4)
+- Affected Component Detection
+- Confidence Score
+- AI Reasoning
+
+Example Output:
+
+```text
+Severity      : High
+Priority      : P2
+Component     : Authentication
+Confidence    : 92%
+Reasoning     : Authentication failures prevent users from accessing the application.
+```
+
+---
+
+## Log Analysis Agent
+
+The Log Analysis Agent parses uploaded error logs and stack traces to extract structured diagnostic information.
+
+Implemented Features:
+
+- Exception Type Detection
+- Failure Point Extraction
+- Affected Code Path Identification
+- Likely Cause Analysis
+
+Example Output:
+
+```text
+Exception Type      : NullPointerException
+Failure Point       : UserController.login(UserController.java:42)
+Affected Code Path  :
+• UserController.login()
+• AuthenticationService.authenticate()
+
+Likely Cause:
+Object was not initialized before use.
+```
+
+---
+
+## Multi-Agent Orchestration
+
+The application automatically executes multiple agents whenever a bug report is submitted.
+
+Workflow:
+
+```text
+Bug Report + Error Log
+          │
+          ▼
+     Triage Agent
+          │
+          ▼
+   Log Analysis Agent
+          │
+          ▼
+Structured Analysis Output
+          │
+          ▼
+Passed as Context to Downstream Agents
+```
+
+This orchestration ensures that the outputs produced by the Triage Agent and Log Analysis Agent are available to subsequent analysis modules.
+
+---
+
+# Validation
+
+To validate the implemented agents, representative bug reports covering different software defect categories were tested using the seeded historical defect dataset.
+
+Validation covered:
+
+- Login Failure
+- Database Connection Failure
+- NullPointerException
+- File Not Found
+- OutOfMemoryError
+- API Timeout
+- Permission Denied
+- Network Error
+- UI Rendering Issue
+- SQL Syntax Error
+- HTTP 500 Error
+- IndexOutOfBoundsException
+
+Validation artifacts include:
+
+- Representative test cases
+- Validation report
+- Output screenshots for each test case
+
+---
+
+# Milestone Progress
+
+| Milestone | Status |
+|------------|--------|
+| Milestone 1 | ✅ Completed |
+| Milestone 2 | ✅ Completed |
 # Repository
 
 GitHub Repository:
@@ -352,5 +463,3 @@ https://github.com/Faith67-spec/AI-Smart-Bug-Analyzer
 Infosys Internship Project (Faith67-spec)
 
 AI Smart Bug Analyzer & Fix Advisor
-
-Milestone 1

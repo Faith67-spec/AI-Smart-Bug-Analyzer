@@ -5,6 +5,10 @@ def show_triage_tab(triage):
 
     st.subheader("📋 Triage Agent")
 
+    # -------------------------
+    # Metrics
+    # -------------------------
+
     col1, col2, col3 = st.columns(3)
 
     with col1:
@@ -25,14 +29,22 @@ def show_triage_tab(triage):
             f"{triage['Confidence']}%"
         )
 
-    st.write("### 🧩 Component")
+    # -------------------------
+    # Component
+    # -------------------------
+
+    st.markdown("### 🧩 Component")
 
     st.info(
         triage["Component"]
     )
 
-    st.subheader("💡 AI Reasoning")
+    # -------------------------
+    # AI Reasoning
+    # -------------------------
 
-    for reason in triage["Reasoning"]:
+    st.markdown("### 💡 AI Reasoning")
 
-        st.success(reason)
+    st.info(
+        triage["Reasoning"]
+    )
