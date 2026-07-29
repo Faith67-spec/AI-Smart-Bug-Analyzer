@@ -30,7 +30,7 @@ def show_sidebar(logo):
         st.info("Streamlit")
 
         st.write("Active Agents")
-        st.info("Triage + Log Analysis")
+        st.info("Triage+Log Analysis+Root Cause+Recommendation")
 
         st.divider()
 

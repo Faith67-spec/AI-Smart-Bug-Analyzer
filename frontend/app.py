@@ -107,6 +107,11 @@ if st.button(
     )
 
     show_report(
-        triage,
-        log
-    )
+    bug_text,
+    log_contents,
+    triage,
+    log,
+    root_cause,
+    results["Similar Bugs"],
+    recommendations
+)

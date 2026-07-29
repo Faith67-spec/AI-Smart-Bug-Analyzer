@@ -10,21 +10,29 @@ class RecommendationAgent:
 
             recommendations = [
 
+                "Root Cause: Object reference was null before use.",
+
+                "Historical Resolution: Similar defects were resolved by initializing objects before accessing their methods.",
+
                 "Initialize objects before method invocation.",
 
                 "Add null checks before accessing object members.",
 
-                "Validate request parameters.",
+                "Validate incoming request parameters.",
 
                 "Review AuthenticationService login workflow.",
 
-                "Write unit tests for login edge cases."
+                "Engineering Best Practice: Add unit tests to cover null object scenarios."
 
             ]
 
         elif "jdbc" in exception or "connection" in exception:
 
             recommendations = [
+
+                "Root Cause: Database connection could not be established.",
+
+                "Historical Resolution: Similar issues were resolved by correcting the JDBC configuration and restoring database connectivity.",
 
                 "Verify database server availability.",
 
@@ -34,13 +42,17 @@ class RecommendationAgent:
 
                 "Inspect connection pool settings.",
 
-                "Retry database connection after recovery."
+                "Engineering Best Practice: Monitor connection pool usage and implement retry logic."
 
             ]
 
         elif "indexoutofbounds" in exception:
 
             recommendations = [
+
+                "Root Cause: Invalid collection index accessed.",
+
+                "Historical Resolution: Similar defects were resolved by validating collection boundaries before access.",
 
                 "Validate collection size before access.",
 
@@ -50,7 +62,7 @@ class RecommendationAgent:
 
                 "Handle empty collections safely.",
 
-                "Create regression tests."
+                "Engineering Best Practice: Include boundary condition tests in regression testing."
 
             ]
 
@@ -58,15 +70,17 @@ class RecommendationAgent:
 
             recommendations = [
 
-                "Review stack trace carefully.",
+                "Root Cause: Unable to determine automatically.",
+
+                "Review the complete stack trace.",
 
                 "Inspect recent commits.",
 
                 "Improve exception handling.",
 
-                "Increase logging.",
+                "Increase application logging.",
 
-                "Create regression tests."
+                "Engineering Best Practice: Add regression tests after resolving the defect."
 
             ]
 

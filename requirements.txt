@@ -1,0 +1,6 @@
+streamlit
+fastapi
+chromadb
+sentence-transformers
+langchain
+reportlab

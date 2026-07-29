@@ -32,13 +32,14 @@ class BugAnalysisOrchestrator:
             triage_result,
             log_result
         )
-        root_cause = self.root_cause.analyze(
-             bug_report,
-             log
-       
-)
         similar_bugs = self.duplicate_detector.detect(
-     bug_report
+    bug_report
+)
+
+        root_cause = self.root_cause.analyze(
+    bug_report,
+    log,
+    similar_bugs
 )
 
         return {

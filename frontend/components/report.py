@@ -1,38 +1,32 @@
 import streamlit as st
+from utils.pdf_report import generate_pdf_report
 
 
-def show_report(triage, log):
+def show_report(
+    bug_report,
+    uploaded_log,
+    triage,
+    log_analysis,
+    root_cause,
+    similar_bugs,
+    recommendations
+):
 
-    report = f"""
-AI SMART BUG ANALYZER REPORT
-
-Severity: {triage['Severity']}
-Priority: {triage['Priority']}
-Confidence: {triage['Confidence']}%
-
-Component:
-{triage['Component']}
-
-Exception:
-{log['Exception Type']}
-
-Failure Point:
-{log['Failure Point']}
-
-Likely Cause:
-{log['Likely Cause']}
-"""
+    pdf = generate_pdf_report(
+        bug_report,
+        uploaded_log,
+        triage,
+        log_analysis,
+        root_cause,
+        similar_bugs,
+        recommendations
+    )
 
     st.divider()
 
     st.download_button(
-
-        "📄 Download Report",
-
-        report,
-
-        file_name="bug_analysis_report.txt",
-
-        mime="text/plain"
-
+        label="📄 Download PDF Report",
+        data=pdf,
+        file_name="Bug_Analysis_Report.pdf",
+        mime="application/pdf"
     )

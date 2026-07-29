@@ -4,25 +4,19 @@ import streamlit as st
 
 def get_badge(similarity):
 
-    if similarity >= 90:
+    if similarity >= 85:
         return "🟢 Excellent Match"
 
     elif similarity >= 70:
         return "🟡 Strong Match"
 
-    elif similarity >= 50:
-        return "🟠 Moderate Match"
+    elif similarity >= 40:
+        return "🟠 Related Match"
 
-    return "🔴 Weak Match"
-
+    return "🔴 Low Match"
 
 def extract(pattern, text):
-
-    match = re.search(
-        pattern,
-        text,
-        re.IGNORECASE
-    )
+    match = re.search(pattern, text, re.IGNORECASE)
 
     if match:
         return match.group(1).strip()
@@ -71,84 +65,47 @@ def show_similar_bug_tab(similar_bugs):
     st.subheader("📚 Similar Historical Bugs")
 
     if len(similar_bugs) == 0:
-
-        st.warning(
-            "No similar historical bugs found."
-        )
-
+        st.warning("No similar historical bugs found.")
         return
 
     for i, bug in enumerate(similar_bugs, start=1):
 
         similarity = bug["Similarity"]
-
         metadata = bug["Metadata"]
-
-        parsed = parse_bug(
-            bug["Bug"]
-        )
+        parsed = parse_bug(bug["Bug"])
 
         st.divider()
 
-        st.markdown(
-            f"# 🐞 Historical Bug #{i}"
-        )
+        st.markdown(f"## 🐞 Historical Bug #{i}")
 
         col1, col2 = st.columns([3,1])
 
         with col1:
-
-            st.success(
-                get_badge(similarity)
-            )
+            st.success(get_badge(similarity))
 
         with col2:
-
-            st.metric(
-                "Similarity",
-                f"{similarity}%"
-            )
-
-        st.progress(
-            similarity / 100
-        )
+           st.metric(
+    "Similarity",
+    f"{round(similarity)}%"
+)
+        st.progress(similarity / 100)
 
         st.subheader("📦 Bug Details")
 
         c1, c2, c3 = st.columns(3)
 
         with c1:
-
-            st.metric(
-                "Product",
-                parsed["Product"]
-            )
-
-            st.metric(
-                "Severity",
-                parsed["Severity"]
-            )
+            st.metric("Product", parsed["Product"])
+            st.metric("Severity", parsed["Severity"])
 
         with c2:
-
-            st.metric(
-                "Component",
-                parsed["Component"]
-            )
-
-            st.metric(
-                "Priority",
-                parsed["Priority"]
-            )
+            st.metric("Component", parsed["Component"])
+            st.metric("Priority", parsed["Priority"])
 
         with c3:
-
             st.metric(
                 "Bug ID",
-                metadata.get(
-                    "Bug_ID",
-                    "Unknown"
-                )
+                metadata.get("Bug_ID", "Unknown")
             )
 
             st.metric(
@@ -156,8 +113,19 @@ def show_similar_bug_tab(similar_bugs):
                 parsed["Resolution"]
             )
 
-        st.subheader("📝 Summary")
+        st.subheader("📝 Historical Summary")
 
-        st.info(
-            parsed["Summary"]
-        )
+        st.info(parsed["Summary"])
+
+        st.subheader("✅ Resolution Status")
+
+        st.success(
+    parsed["Resolution"]
+)
+
+        st.subheader("📖 Supporting Evidence")
+
+st.caption(
+    "Retrieved from the Eclipse Bugzilla historical defect knowledge base using semantic similarity retrieval."
+)
+        
