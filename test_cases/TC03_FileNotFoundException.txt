@@ -1,0 +1,17 @@
+Product: Document Management System
+Component: File Upload
+Severity: Medium
+Priority: P2
+
+Summary:
+The application throws FileNotFoundException when attempting to access a missing configuration file.
+
+Stack Trace:
+java.io.FileNotFoundException: config.properties
+    at com.docs.config.Loader.load(Loader.java:41)
+
+Expected Result:
+Display a user-friendly error indicating the file is missing.
+
+Actual Result:
+Application terminates unexpectedly.

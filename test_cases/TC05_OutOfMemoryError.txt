@@ -1,0 +1,17 @@
+Product: Image Processing System
+Component: Image Rendering
+Severity: Critical
+Priority: P1
+
+Summary:
+Application crashes with OutOfMemoryError while processing large image files.
+
+Stack Trace:
+java.lang.OutOfMemoryError: Java heap space
+    at com.image.processor.RenderEngine.render(RenderEngine.java:215)
+
+Expected Result:
+Process images without exhausting available memory.
+
+Actual Result:
+Application terminates due to insufficient memory.

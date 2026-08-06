@@ -1,0 +1,17 @@
+Product: Hospital Management System
+Component: Database Layer
+Severity: Critical
+Priority: P1
+
+Summary:
+Unable to establish a database connection during patient record retrieval.
+
+Stack Trace:
+java.sql.SQLException: Connection refused
+    at com.hospital.db.ConnectionManager.connect(ConnectionManager.java:52)
+
+Expected Result:
+Retry the connection and notify the user if unavailable.
+
+Actual Result:
+Patient records fail to load.

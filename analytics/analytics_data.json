@@ -1,0 +1,156 @@
+[
+    {
+        "Exception": "CannotGetJdbcConnectionException",
+        "Severity": "High",
+        "Root Cause": "The application could not establish a database connection.",
+        "Component": "Database Layer",
+        "Confidence": 84
+    },
+    {
+        "Exception": "IndexOutOfBoundsException",
+        "Severity": "Medium",
+        "Root Cause": "The application attempted to access an invalid collection index.",
+        "Component": "Collection Processing",
+        "Confidence": 82
+    },
+    {
+        "Exception": "NullPointerException",
+        "Severity": "Critical",
+        "Root Cause": "The application attempted to access an object that had not been initialized.",
+        "Component": "Authentication Module",
+        "Confidence": 88
+    },
+    {
+        "Exception": "NullPointerException",
+        "Severity": "Critical",
+        "Root Cause": "The application attempted to access an object that had not been initialized.",
+        "Component": "Authentication Module",
+        "Confidence": 88
+    },
+    {
+        "Exception": "HTTP 500",
+        "Severity": "High",
+        "Root Cause": "Unable to determine the exact cause.",
+        "Component": "Unknown",
+        "Confidence": 62
+    },
+    {
+        "Exception": "CannotGetJdbcConnectionException",
+        "Severity": "High",
+        "Root Cause": "The application could not establish a database connection.",
+        "Component": "Database Layer",
+        "Confidence": 84
+    },
+    {
+        "Exception": "CannotGetJdbcConnectionException",
+        "Severity": "High",
+        "Root Cause": "The application could not establish a database connection.",
+        "Component": "Database Layer",
+        "Confidence": 84
+    },
+    {
+        "Exception": "HTTP 500",
+        "Severity": "High",
+        "Root Cause": "Unable to determine the exact cause.",
+        "Component": "Unknown",
+        "Confidence": 62
+    },
+    {
+        "Exception": "HTTP 500",
+        "Severity": "High",
+        "Root Cause": "Unable to determine the exact cause.",
+        "Component": "Unknown",
+        "Confidence": 62
+    },
+    {
+        "Exception": "HTTP 500",
+        "Severity": "High",
+        "Root Cause": "Unable to determine the exact cause.",
+        "Component": "Unknown",
+        "Confidence": 62
+    },
+    {
+        "Exception": "HTTP 500",
+        "Severity": "High",
+        "Root Cause": "Unable to determine the exact cause.",
+        "Component": "Unknown",
+        "Confidence": 62
+    },
+    {
+        "Exception": "HTTP 500",
+        "Severity": "High",
+        "Root Cause": "Unable to determine the exact cause.",
+        "Component": "Unknown",
+        "Confidence": 62
+    },
+    {
+        "Exception": "HTTP 500",
+        "Severity": "High",
+        "Root Cause": "Unable to determine the exact cause.",
+        "Component": "Unknown",
+        "Confidence": 62
+    },
+    {
+        "Exception": "Unknown",
+        "Severity": "Low",
+        "Root Cause": "Unable to determine the exact cause.",
+        "Component": "Unknown",
+        "Confidence": 62
+    },
+    {
+        "Exception": "SQLSyntaxErrorException",
+        "Severity": "Medium",
+        "Root Cause": "Unable to determine the exact cause.",
+        "Component": "Unknown",
+        "Confidence": 62
+    },
+    {
+        "Exception": "IndexOutOfBoundsException",
+        "Severity": "High",
+        "Root Cause": "The application attempted to access an invalid collection index.",
+        "Component": "Collection Processing",
+        "Confidence": 82
+    },
+    {
+        "Exception": "IndexOutOfBoundsException",
+        "Severity": "High",
+        "Root Cause": "The application attempted to access an invalid collection index.",
+        "Component": "Collection Processing",
+        "Confidence": 93
+    },
+    {
+        "Exception": "IndexOutOfBoundsException",
+        "Severity": "High",
+        "Root Cause": "The application attempted to access an invalid collection index.",
+        "Component": "Collection Processing",
+        "Confidence": 93
+    },
+    {
+        "Exception": "NullPointerException",
+        "Severity": "Critical",
+        "Root Cause": "The application attempted to access an object that had not been initialized.",
+        "Component": "Authentication Module",
+        "Confidence": 92
+    },
+    {
+        "Exception": "FileNotFoundException",
+        "Severity": "Medium",
+        "Root Cause": "The application attempted to access a file that could not be found.",
+        "Component": "File System",
+        "Confidence": 89
+    },
+    {
+        "Exception": "CannotGetJdbcConnectionException",
+        "Severity": "High",
+        "Root Cause": "A database operation failed while executing an SQL query.",
+        "Component": "Database Layer",
+        "Confidence": 85
+    },
+    {
+        "Exception": "OutOfMemoryError",
+        "Severity": "Critical",
+        "Root Cause": "The Java Virtual Machine exhausted the available memory.",
+        "Component": "Memory Management",
+        "Confidence": 92
+    }
+]

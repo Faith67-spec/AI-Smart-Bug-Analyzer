@@ -1,0 +1,17 @@
+Product: Banking System
+Component: Customer Profile
+Severity: High
+Priority: P1
+
+Summary:
+NullPointerException occurs when a customer updates their profile without providing an email address.
+
+Stack Trace:
+java.lang.NullPointerException
+    at com.bank.profile.ProfileService.update(ProfileService.java:88)
+
+Expected Result:
+The application should validate mandatory fields before processing.
+
+Actual Result:
+The application crashes with a NullPointerException.

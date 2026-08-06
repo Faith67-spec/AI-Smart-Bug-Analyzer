@@ -1,6 +1,6 @@
-# AI Smart Bug Analyzer & Fix Advisor
+# Creation of Intelligent Bug Diagnosis Platform with Fix Recommendation Assistance Group 2
 
-### AI-Powered Multi-Agent Defect Analysis using Retrieval-Augmented Generation (RAG)
+### AI-Powered Multi-Agent Bug Diagnosis using Retrieval-Augmented Generation (RAG), Defect Analytics and Knowledge Base Growth
 
 ## Overview
 
@@ -444,12 +444,172 @@ Validation artifacts include:
 
 ---
 
+# Milestone 3 Objectives
+
+Milestone 3 focused on developing the intelligent multi-agent bug diagnosis pipeline by integrating advanced AI agents and Retrieval-Augmented Generation (RAG) for historical bug analysis.
+
+Completed objectives include:
+
+- ✔ Develop Root Cause Analysis Agent
+- ✔ Implement Duplicate Detection Agent using RAG
+- ✔ Develop Fix Recommendation Agent
+- ✔ Generate structured AI analysis reports
+- ✔ Integrate all agents into a complete multi-agent orchestration pipeline
+
+# Milestone 3 Features
+
+## Root Cause Analysis Agent
+
+The Root Cause Analysis Agent analyses the outputs from the Triage and Log Analysis agents to determine the most probable cause of a software defect.
+
+Implemented Features:
+
+- Root cause hypothesis generation
+- Confidence scoring
+- Affected module identification
+- Technical explanation
+
+---
+
+## Duplicate Detection Agent
+
+The Duplicate Detection Agent performs semantic similarity search over the historical defect knowledge base using Retrieval-Augmented Generation (RAG).
+
+Implemented Features:
+
+- Historical bug retrieval
+- Semantic similarity scoring
+- Duplicate bug detection
+- Supporting historical evidence
+
+---
+
+## Fix Recommendation Agent
+
+The Fix Recommendation Agent generates AI-assisted remediation suggestions using contextual information gathered from previous agents.
+
+Implemented Features:
+
+- Actionable fix recommendations
+- Preventive best practices
+- Resolution guidance
+- Developer recommendations
+
+---
+
+## PDF Report Generation
+
+The application automatically generates a structured PDF report containing:
+
+- Bug summary
+- Triage results
+- Log analysis
+- Root cause analysis
+- Historical bug matches
+- AI-generated recommendations
+- 
+# Milestone 4 Objectives
+
+Milestone 4 focused on improving the platform by introducing analytics, continuous knowledge base learning, end-to-end validation, and project documentation.
+
+Completed objectives include:
+
+- ✔ Develop Defect Pattern Analytics Dashboard
+- ✔ Implement Knowledge Base Growth Mechanism
+- ✔ Conduct End-to-End Testing
+- ✔ Validate complete multi-agent pipeline
+
+# Milestone 4 Features
+
+## Defect Pattern Analytics Dashboard
+
+The analytics dashboard provides insights into analysed software defects by identifying recurring patterns and trends.
+
+Implemented Features:
+
+- Total analysed bugs
+- Severity distribution
+- Most affected components
+- Frequent root causes
+- Average AI confidence
+- AI-generated analytical insights
+
+---
+
+## Knowledge Base Growth
+
+Resolved bugs can now be stored back into the ChromaDB vector database.
+
+Implemented Features:
+
+- Store verified bug reports
+- Store root causes
+- Store AI recommendations
+- Automatic embedding generation
+- Continuous knowledge base expansion
+
+---
+
+## End-to-End Testing
+
+The complete AI pipeline was validated using multiple representative bug scenarios.
+
+Validated Scenarios:
+
+- IndexOutOfBoundsException
+- NullPointerException
+- FileNotFoundException
+- Database Connection Failure
+- OutOfMemoryError
+
+Each scenario successfully executed:
+
+- Triage Agent
+- Log Analysis Agent
+- Root Cause Analysis Agent
+- Duplicate Detection Agent
+- Recommendation Agent
+- PDF Report Generation
+
+# Complete AI Pipeline
+
+```text
+Bug Report
+      │
+      ▼
+Triage Agent
+      │
+      ▼
+Log Analysis Agent
+      │
+      ▼
+Root Cause Analysis Agent
+      │
+      ▼
+Duplicate Detection (RAG)
+      │
+      ▼
+Fix Recommendation Agent
+      │
+      ▼
+PDF Report Generation
+      │
+      ▼
+Analytics Dashboard
+      │
+      ▼
+Knowledge Base Growth
+
+
 # Milestone Progress
 
 | Milestone | Status |
 |------------|--------|
 | Milestone 1 | ✅ Completed |
 | Milestone 2 | ✅ Completed |
+| Milestone 3 | ✅ Completed |
+| Milestone 4 | ✅ Completed |
+
 # Repository
 
 GitHub Repository:

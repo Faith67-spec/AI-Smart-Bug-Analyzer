@@ -1,0 +1,218 @@
+
+import os
+import sys
+import streamlit as st
+
+
+PROJECT_ROOT = os.path.abspath(
+    os.path.join(
+        os.path.dirname(__file__),
+        ".."
+    )
+)
+
+sys.path.append(PROJECT_ROOT)
+from rag.knowledge_base_growth import KnowledgeBaseGrowth
+from agents.orchestrator import BugAnalysisOrchestrator
+from analytics.analytics_store import AnalyticsStore
+from analytics.analytics_dashboard import show_analytics_dashboard
+from components.header import show_header
+from components.sidebar import show_sidebar
+from components.bug_form import show_bug_form
+from components.triage_tab import show_triage_tab
+from components.log_tab import show_log_tab
+from components.recommendation_tab import show_recommendation_tab
+from components.root_cause_tab import show_root_cause_tab
+from components.similar_bug_tab import show_similar_bug_tab
+from components.report import show_report
+
+analytics_store = AnalyticsStore()
+kb_growth = KnowledgeBaseGrowth()
+
+logo = os.path.join(
+    PROJECT_ROOT,
+    "assets",
+    "robot.png"
+)
+
+st.set_page_config(
+    page_title="AI Smart Bug Analyzer",
+    page_icon=logo if os.path.exists(logo) else "🤖",
+    layout="wide"
+)
+page = st.sidebar.radio(
+
+    "Navigation",
+
+    [
+
+        "🤖 AI Bug Analyzer",
+
+        "📊 Analytics Dashboard"
+
+    ]
+
+)
+if page == "📊 Analytics Dashboard":
+
+    show_analytics_dashboard()
+
+    st.stop()
+
+show_header(logo)
+show_sidebar(logo)
+
+orchestrator = BugAnalysisOrchestrator()
+
+description, log_contents = show_bug_form()
+
+if st.button(
+    "🤖 Analyze with AI",
+    use_container_width=True
+):
+
+    # Require at least one input
+    if description.strip() == "" and log_contents.strip() == "":
+        st.error("Please either paste a bug report or upload a log file.")
+        st.stop()
+
+    # Use uploaded log if description is empty
+    bug_text = description if description.strip() else log_contents
+
+    with st.spinner("Analyzing Bug..."):
+
+        results = orchestrator.analyze(
+            bug_text,
+            log_contents
+        )
+        # Save analysis in session state
+    st.session_state["bug_text"] = bug_text
+    st.session_state["triage"] = results["Triage"]
+    st.session_state["log"] = results["Log Analysis"]
+    st.session_state["root_cause"] = results["Root Cause"]
+    st.session_state["recommendations"] = results["Recommendations"]
+    st.session_state["similar_bugs"] = results["Similar Bugs"]
+
+    triage = results["Triage"]
+    log = results["Log Analysis"]
+    recommendations = results["Recommendations"]
+    root_cause = results["Root Cause"]
+
+    # Save analysis for analytics dashboard
+analysis = {
+
+        "Exception": log.get(
+            "Exception Type",
+            "Unknown"
+        ),
+
+        "Severity": triage.get(
+            "Severity",
+            "Unknown"
+        ),
+
+        "Root Cause": root_cause.get(
+            "Root Cause",
+            "Unknown"
+        ),
+
+        "Component": root_cause.get(
+            "Affected Module",
+            "Unknown"
+        ),
+
+        "Confidence": root_cause.get(
+            "Confidence",
+            0
+        )
+
+    }
+
+analytics_store.save_analysis(
+        analysis
+    )
+st.divider()
+
+st.header("🤖 AI Analysis")
+
+tab1, tab2, tab3, tab4, tab5 = st.tabs(
+        [
+            "📋 Triage",
+            "🔍 Log Analysis",
+            "💡 Recommendations",
+            "🧠 Root Cause",
+            "📚 Similar Bugs"
+        ]
+    )
+
+with tab1:
+        show_triage_tab(triage)
+
+with tab2:
+        show_log_tab(log)
+
+with tab3:
+        show_recommendation_tab(recommendations)
+
+with tab4:
+        show_root_cause_tab(root_cause)
+
+with tab5:
+        show_similar_bug_tab(results["Similar Bugs"])
+
+show_report(
+        bug_text,
+        log_contents,
+        triage,
+        log,
+        root_cause,
+        results["Similar Bugs"],
+        recommendations
+    )
+
+st.divider()
+# ==========================================
+# Knowledge Base Growth
+# ==========================================
+if "bug_text" in st.session_state:
+
+ st.divider()
+
+if st.button(
+        "✔ Add Resolved Bug to Knowledge Base",
+        use_container_width=True
+    ):
+
+        kb_growth.add_resolved_bug(
+
+            bug_report=st.session_state["bug_text"],
+
+            severity=st.session_state["triage"].get(
+                "Severity",
+                "Unknown"
+            ),
+
+            component=st.session_state["root_cause"].get(
+                "Affected Module",
+                "Unknown"
+            ),
+
+            root_cause=st.session_state["root_cause"].get(
+                "Root Cause",
+                "Unknown"
+            ),
+
+            confidence=st.session_state["root_cause"].get(
+                "Confidence",
+                0
+            ),
+
+            recommendations="\n".join(
+                st.session_state["recommendations"]
+            )
+
+        )
+
+        st.success(
+            "✅ Bug successfully added to the knowledge base."
+        )

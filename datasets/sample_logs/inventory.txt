@@ -1,0 +1,17 @@
+Product: Inventory System
+Component: User Authentication
+Severity: High
+Priority: P1
+
+Summary:
+IndexOutOfBoundsException occurs when the user uploads an empty CSV file containing only headers.
+
+Stack Trace:
+java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
+    at com.inventory.csv.CSVParser.parse(CSVParser.java:52)
+
+Expected Result:
+The system should detect an empty dataset and display an informative error message.
+
+Actual Result:
+The application crashes with IndexOutOfBoundsException.
