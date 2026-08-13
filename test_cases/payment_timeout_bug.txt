@@ -1,0 +1,27 @@
+Product: Payment System
+Component: Payment Gateway
+Severity: High
+Priority: P1
+
+Summary:
+Payment processing fails intermittently when a customer attempts to complete an order using a valid credit card because the application times out while communicating with the external payment gateway.
+
+Stack Trace:
+java.net.SocketTimeoutException: Read timed out
+    at com.smartbug.payment.PaymentGatewayClient.processPayment(PaymentGatewayClient.java:74)
+    at com.smartbug.payment.PaymentService.charge(PaymentService.java:52)
+    at com.smartbug.order.OrderService.completeOrder(OrderService.java:118)
+    at com.smartbug.api.CheckoutController.checkout(CheckoutController.java:63)
+    at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071)
+
+Caused by: java.net.SocketTimeoutException: Read timed out
+    at java.net.SocketInputStream.socketRead0(Native Method)
+    at java.net.SocketInputStream.socketRead(SocketInputStream.java:115)
+    at com.smartbug.payment.PaymentGatewayClient.sendRequest(PaymentGatewayClient.java:91)
+
+Expected Result:
+The payment service should handle temporary payment gateway delays gracefully, retry transient failures when appropriate, and provide a clear error message without leaving the order permanently pending.
+
+Actual Result:
+The payment request times out while communicating with the external payment gateway, causing the payment to fail and leaving the customer order in a pending state.
+

@@ -152,5 +152,152 @@
         "Root Cause": "The Java Virtual Machine exhausted the available memory.",
         "Component": "Memory Management",
         "Confidence": 92
+    },
+    {
+        "Exception": "IndexOutOfBoundsException",
+        "Severity": "Medium",
+        "Root Cause": "The application attempted to access an invalid collection index.",
+        "Component": "Collection Processing",
+        "Confidence": 82
+    },
+    {
+        "Exception": "FileNotFoundException",
+        "Severity": "Medium",
+        "Root Cause": "The application attempted to access a file that could not be found.",
+        "Component": "File System",
+        "Confidence": 85
+    },
+    {
+        "Exception": "FileNotFoundException",
+        "Severity": "Medium",
+        "Root Cause": "The application attempted to access a file that could not be found.",
+        "Component": "File System",
+        "Confidence": 85
+    },
+    {
+        "Exception": "FileNotFoundException",
+        "Severity": "Medium",
+        "Root Cause": "The application attempted to access a file that could not be found.",
+        "Component": "File System",
+        "Confidence": 85
+    },
+    {
+        "Exception": "IndexOutOfBoundsException",
+        "Severity": "Medium",
+        "Root Cause": "The application attempted to access an invalid collection index.",
+        "Component": "Collection Processing",
+        "Confidence": 82
+    },
+    {
+        "Exception": "IndexOutOfBoundsException",
+        "Severity": "High",
+        "Root Cause": "The application attempted to access an invalid collection index.",
+        "Component": "Collection Processing",
+        "Confidence": 93
+    },
+    {
+        "Exception": "Unknown",
+        "Severity": "Low",
+        "Root Cause": "Unable to determine the exact cause.",
+        "Component": "Unknown",
+        "Confidence": 62
+    },
+    {
+        "Exception": "Unknown",
+        "Severity": "Low",
+        "Root Cause": "Unable to determine the exact cause.",
+        "Component": "Unknown",
+        "Confidence": 62
+    },
+    {
+        "Exception": "Unknown",
+        "Severity": "Low",
+        "Root Cause": "Unable to determine the exact cause.",
+        "Component": "Unknown",
+        "Confidence": 72
+    },
+    {
+        "Exception": "FileNotFoundException",
+        "Severity": "Medium",
+        "Root Cause": "The application attempted to access a file that could not be found.",
+        "Component": "File System",
+        "Confidence": 85
+    },
+    {
+        "Exception": "IndexOutOfBoundsException",
+        "Severity": "Medium",
+        "Root Cause": "The application attempted to access an invalid collection index.",
+        "Component": "Collection Processing",
+        "Confidence": 82
+    },
+    {
+        "Exception": "IndexOutOfBoundsException",
+        "Severity": "Medium",
+        "Root Cause": "The application attempted to access an invalid collection index.",
+        "Component": "Collection Processing",
+        "Confidence": 82
+    },
+    {
+        "Exception": "IndexOutOfBoundsException",
+        "Severity": "Medium",
+        "Root Cause": "The application attempted to access an invalid collection index.",
+        "Component": "Collection Processing",
+        "Confidence": 82
+    },
+    {
+        "Exception": "IndexOutOfBoundsException",
+        "Severity": "Medium",
+        "Root Cause": "The application attempted to access an invalid collection index.",
+        "Component": "Collection Processing",
+        "Confidence": 82
+    },
+    {
+        "Exception": "IndexOutOfBoundsException",
+        "Severity": "Medium",
+        "Root Cause": "The application attempted to access an invalid collection index.",
+        "Component": "Collection Processing",
+        "Confidence": 82
+    },
+    {
+        "Exception": "IndexOutOfBoundsException",
+        "Severity": "Medium",
+        "Root Cause": "The application attempted to access an invalid collection index.",
+        "Component": "Collection Processing",
+        "Confidence": 82
+    },
+    {
+        "Exception": "TimeoutException",
+        "Severity": "High",
+        "Root Cause": "The application exceeded the maximum waiting time while communicating with an external service.",
+        "Component": "Network Communication",
+        "Confidence": 83
+    },
+    {
+        "Exception": "AccessDeniedException",
+        "Severity": "Medium",
+        "Root Cause": "The application attempted to access a protected file or directory without sufficient permissions.",
+        "Component": "File Security",
+        "Confidence": 87
+    },
+    {
+        "Exception": "AccessDeniedException",
+        "Severity": "Medium",
+        "Root Cause": "The application attempted to access a protected file or directory without sufficient permissions.",
+        "Component": "File Security",
+        "Confidence": 99
+    },
+    {
+        "Exception": "IndexOutOfBoundsException",
+        "Severity": "High",
+        "Root Cause": "The application attempted to access an invalid collection index.",
+        "Component": "Collection Processing",
+        "Confidence": 82
+    },
+    {
+        "Exception": "NullPointerException",
+        "Severity": "Critical",
+        "Root Cause": "The application attempted to access an object that had not been initialized.",
+        "Component": "Authentication Module",
+        "Confidence": 88
     }
 ]
