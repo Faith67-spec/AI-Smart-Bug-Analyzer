@@ -313,5 +313,19 @@
         "Root Cause": "The application attempted to access a file that could not be found.",
         "Component": "File System",
         "Confidence": 89
+    },
+    {
+        "Exception": "FileNotFoundException",
+        "Severity": "Medium",
+        "Root Cause": "The application attempted to access a file that could not be found.",
+        "Component": "File System",
+        "Confidence": 89
+    },
+    {
+        "Exception": "CannotGetJdbcConnectionException",
+        "Severity": "High",
+        "Root Cause": "The application could not establish a database connection.",
+        "Component": "Database Layer",
+        "Confidence": 84
     }
 ]

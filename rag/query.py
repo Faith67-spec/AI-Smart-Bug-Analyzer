@@ -23,9 +23,9 @@ class BugQuery:
             path=db_path
         )
 
-        self.collection = client.get_collection(
-            "bug_reports"
-        )
+        self.collection = client.get_or_create_collection(
+    name="bug_reports"
+)
 
     def search(self, query, top_k=3):
 

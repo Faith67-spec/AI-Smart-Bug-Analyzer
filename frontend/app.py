@@ -21,7 +21,7 @@ sys.path.append(PROJECT_ROOT)
 
 from agents.orchestrator import BugAnalysisOrchestrator
 from rag.knowledge_base_growth import KnowledgeBaseGrowth
-
+from rag.init_chroma import initialize_chroma
 from analytics.analytics_store import AnalyticsStore
 from analytics.analytics_dashboard import show_analytics_dashboard
 
@@ -41,6 +41,7 @@ from components.report import show_report
 # =====================================================
 
 analytics_store = AnalyticsStore()
+initialize_chroma()
 
 kb_growth = KnowledgeBaseGrowth()
 
