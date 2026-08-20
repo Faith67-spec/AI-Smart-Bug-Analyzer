@@ -299,5 +299,19 @@
         "Root Cause": "The application attempted to access an object that had not been initialized.",
         "Component": "Authentication Module",
         "Confidence": 88
+    },
+    {
+        "Exception": "FileNotFoundException",
+        "Severity": "Medium",
+        "Root Cause": "The application attempted to access a file that could not be found.",
+        "Component": "File System",
+        "Confidence": 89
+    },
+    {
+        "Exception": "FileNotFoundException",
+        "Severity": "Medium",
+        "Root Cause": "The application attempted to access a file that could not be found.",
+        "Component": "File System",
+        "Confidence": 89
     }
 ]

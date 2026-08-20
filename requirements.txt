@@ -5,6 +5,8 @@ chromadb
 sentence-transformers
 langchain
 pandas
+numpy
+scikit-learn
 plotly
 reportlab
 requests
