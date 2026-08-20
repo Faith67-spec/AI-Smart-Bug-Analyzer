@@ -5,3 +5,5 @@ __pycache__/
 .vscode/
 .streamlit/
 *.log
+# Local ChromaDB data
+rag/chroma_db/
