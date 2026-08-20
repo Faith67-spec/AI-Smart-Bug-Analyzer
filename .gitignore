@@ -7,3 +7,5 @@ __pycache__/
 *.log
 # Local ChromaDB data
 rag/chroma_db/
+
+rag/chroma_db_backup/
