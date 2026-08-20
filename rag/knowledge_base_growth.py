@@ -24,9 +24,9 @@ class KnowledgeBaseGrowth:
             path=db_path
         )
 
-        self.collection = self.client.get_collection(
-            "bug_reports"
-        )
+        self.collection = self.client.get_or_create_collection(
+    name="bug_reports"
+)
 
     def add_resolved_bug(
         self,
